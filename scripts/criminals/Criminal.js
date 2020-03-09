@@ -9,3 +9,4 @@ export const criminalHtmlRep = criminalObject => {
     </section>
 `;
 };
+
