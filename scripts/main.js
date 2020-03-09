@@ -1,7 +1,6 @@
-import { getCriminals } from "./criminals/criminalProvier";
+import { getCriminals } from "./criminals/criminalProvier.js";
 import { criminalList } from "./criminals/CriminalList.js";
 
-getCriminals();
-console.log(getCriminals());
-
-criminalList();
+getCriminals().then(
+    () => criminalList()
+);

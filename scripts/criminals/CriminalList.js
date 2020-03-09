@@ -1,7 +1,7 @@
 import { useCriminals } from "./criminalProvier.js";
 import { criminalHtmlRep } from "./Criminal.js";
 
-const domTarget = document.querySelector(".criminalsContianer");
+const domTarget = document.querySelector(".criminalsContainer");
 
 export const criminalList = () => {
   const criminals = useCriminals();
