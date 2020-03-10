@@ -4,7 +4,7 @@ const domTarget = document.querySelector(".filters__crime");
 
 export const crimeSelect = () => {
   const crimeArray = useCrimes();
-  const render = crimeArrayForRender => {
+  const renderCrimeOption = crimeArrayForRender => {
 
     domTarget.innerHTML = `
        <select class="dropdown" id="crimeSelect">
@@ -17,5 +17,5 @@ export const crimeSelect = () => {
        </select>
     `;
   };
-  render(crimeArray);
+  renderCrimeOption(crimeArray);
 };
