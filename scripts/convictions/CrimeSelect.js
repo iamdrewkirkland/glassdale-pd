@@ -32,7 +32,7 @@ eventHub.addEventListener("change", changeEvent => {
        <select class="dropdown" id="crimeSelect">
            <option value="0">Please select a crime...</option>
            ${crimeArrayForRender.map(crime => {
-             return `<option value="${crime.id}">${crime.name}</option>`
+             return `<option value="${crime.name}">${crime.name}</option>`
            }
         )
         }
