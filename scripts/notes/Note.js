@@ -1,6 +1,6 @@
 // Represent notes as HTML for display
 
-export const NoteList = noteObject => {
+export const Note = noteObject => {
     return `
         <section>
             <h3>${noteObject.suspect}</h3>

@@ -1,29 +1,27 @@
-import { NoteList } from "./Note.js";
+import { Note } from "./Note.js";
+import { useNotes, getNotes } from "./noteDataProvider.js";
+
 
 
 const contentTarget = document.querySelector(".noteFormContainer")
+const eventHub = document.querySelector(".container")
 
+eventHub.addEventListener("noteStateChanged", customEvent => {
+  render()
+})
 
-// Handle browser-generated click event in component
-contentTarget.addEventListener("click", clickEvent => {
-  if (clickEvent.target.id === "saveNote") {
-    // Make a new object representation of a note
-    const newNote = {
-      // Key/value pairs here
-      notetext: "sample note text about suspect John Doe",
-      suspect: "",
-      dateofentry: "",
-    };
+eventHub.addEventListener("allNotesClicked", customEvent => {
+  render()
+})
 
-    // Change API state and application state
-    saveNote(newNote);
-  }
-});
+const render = () => {
+  getNotes().then(() => {
+      const allTheNotes = useNotes()
 
-const NoteForm = () => {
-  // rest of the code here
-  const noteArray = NoteList()
-
-
-};
-
+      contentTarget.innerHTML = allTheNotes.map(
+          currentNoteObject => {
+              return Note(currentNoteObject)
+          }
+      ).join("")
+  })
+}

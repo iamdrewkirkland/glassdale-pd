@@ -2,13 +2,16 @@ const eventHub = document.querySelector(".container")
 
 let notes = []
 
+// Export a copy of notes array for display
+export const useNotes = () => notes.slice()
+
 const dispatchStateChangeEvent = () => {
     const noteStateChangedEvent = new CustomEvent("noteStateChanged")
 
     eventHub.dispatchEvent(noteStateChangedEvent)
 }
 
-const getNotes = () => {
+export const getNotes = () => {
     return fetch('http://localhost:8080/notes')
         .then(response => response.json())
         .then(parsedNotes => {
@@ -28,4 +31,6 @@ export const saveNote = note => {
     .then(getNotes)
     .then(dispatchStateChangeEvent)
 }
+
+
 

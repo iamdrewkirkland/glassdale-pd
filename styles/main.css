@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import "./notes.css";
+@import "./controls.css";
+@import "./criminals.css";
+
+
 
 /*Typography --------------------------------------------------------------*/
 body,
@@ -23,18 +28,4 @@ h6 {
   text-transform: uppercase;
 }
 
-.criminalsContainer {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: start;
-}
 
-.criminal {
-  border: 1px #404040 solid;
-  margin: 3px;
-  flex-basis: 10%;
-  text-align: center;
-  min-width: 200px;
-  min-height: 200px;
-  background-color: rgba(0, 0, 0, 0.1);
-}
