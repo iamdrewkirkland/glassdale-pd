@@ -20,10 +20,12 @@ contentTarget.addEventListener("click", clickEvent => {
   if (clickEvent.target.id === "saveNote") {
     const noteText = document.querySelector("#note-text").value;
     const criminalName = document.querySelector("#note-suspect").value;
+    const noteDate = document.querySelector("#noteDate").value;
+
     const newNote = {
       noteText: noteText,
       cirminal: criminalName,
-      timestamp: Date.now()
+      timestamp: noteDate,
     };
     saveNote(newNote);
   }

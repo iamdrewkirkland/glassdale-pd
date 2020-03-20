@@ -5,15 +5,13 @@ import { crimeSelect } from "./convictions/CrimeSelect.js";
 import NoteForm from "./notes/NoteForm.js";
 import { DisplayNotesButton } from "./notes/DisplayNoteListButton.js";
 import { DisplayNoteFormButton } from "./notes/DisplayNoteFormButton.js";
+import { NoteList } from "./notes/NoteList.js";
 
-getCrimes().then (
-    () => crimeSelect()
-)
+getCrimes().then(() => crimeSelect());
 
-getCriminals().then(
-    () => criminalList()
-);
+getCriminals().then(() => criminalList());
 
-DisplayNotesButton()
-DisplayNoteFormButton()
-NoteForm()
+DisplayNotesButton();
+DisplayNoteFormButton();
+NoteForm();
+NoteList();

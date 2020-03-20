@@ -1,9 +1,9 @@
 {
-    "notes": [
-        {
-        "id": 1,
-        "noteText": "this criminal is suspicious",
-        "criminalName":"this criminal"
+  "notes": [
+    {
+      "id": 1,
+      "noteText": "this criminal is suspicious",
+      "criminalName": "this criminal"
     }
-    ]
+  ]
 }

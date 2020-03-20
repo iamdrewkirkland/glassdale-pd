@@ -3,18 +3,35 @@ import { useNotes, getNotes } from "./noteDataProvider.js";
 
 
 
-const contentTarget = document.querySelector(".noteFormContainer")
+const contentTarget = document.querySelector(".noteListContainer")
 const eventHub = document.querySelector(".container")
+
+let visbility = false
 
 eventHub.addEventListener("noteStateChanged", customEvent => {
   render()
 })
 
 eventHub.addEventListener("allNotesClicked", customEvent => {
-  render()
-})
+  visbility = !visbility
+
+  if (visbility){
+    contentTarget.classList.add("invisble")
+  } else {
+    contentTarget.classList.remove("invisible")
+  }
+
+})                                                
+
 
 const render = () => {
+
+  if (visbility){
+    contentTarget.classList.add("invisble")
+  } else {
+    contentTarget.classList.remove("invisible")
+  }
+  
   getNotes().then(() => {
       const allTheNotes = useNotes()
 
@@ -25,3 +42,6 @@ const render = () => {
       ).join("")
   })
 }
+
+export const NoteList = () => render()
+
