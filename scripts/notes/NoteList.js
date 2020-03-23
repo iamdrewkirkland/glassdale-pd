@@ -17,9 +17,9 @@ eventHub.addEventListener("noteStateChanged", customEvent => {
 // Event handler for note visiblity toggle
 eventHub.addEventListener("allNotesClicked", customEvent => {
   visbility = !visbility
-
+  
   if (visbility){
-    contentTarget.classList.remove("invisble")
+    contentTarget.classList.remove("invisible")
   } 
   else {
     contentTarget.classList.add("invisible")
@@ -31,7 +31,7 @@ eventHub.addEventListener("allNotesClicked", customEvent => {
 const render = () => {
 
   if (visbility){
-    contentTarget.classList.remove("invisble")
+    contentTarget.classList.remove("invisible")
   } else {
     contentTarget.classList.add("invisible")
   }
