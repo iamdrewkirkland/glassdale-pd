@@ -2,6 +2,9 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: start;
+    flex-basis: 60%;
+    border: 2px #090909 solid;
+    padding: 2px;
   }
   
   .criminal {

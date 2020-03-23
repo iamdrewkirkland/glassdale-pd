@@ -1,3 +1,21 @@
 .invisible {
     display: none;
 }
+
+.noteListContainer {
+    /* display: flex;
+    flex-flow: row wrap;
+    justify-content: start; */
+    border: 2px #090909 solid;
+    padding: 2px;
+}
+
+.note {
+    border: 1px #404040 solid;
+    margin: 3px;
+    flex-basis: 10%;
+    text-align: center;
+    min-width: 350px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }

@@ -2,23 +2,27 @@ import { Note } from "./Note.js";
 import { useNotes, getNotes } from "./noteDataProvider.js";
 
 
-
+// DOM Element Selectors
 const contentTarget = document.querySelector(".noteListContainer")
 const eventHub = document.querySelector(".container")
 
+// State variables
 let visbility = false
 
+// Event handler for note state
 eventHub.addEventListener("noteStateChanged", customEvent => {
   render()
 })
 
+// Event handler for note visiblity toggle
 eventHub.addEventListener("allNotesClicked", customEvent => {
   visbility = !visbility
 
   if (visbility){
-    contentTarget.classList.add("invisble")
-  } else {
-    contentTarget.classList.remove("invisible")
+    contentTarget.classList.remove("invisble")
+  } 
+  else {
+    contentTarget.classList.add("invisible")
   }
 
 })                                                
@@ -27,9 +31,9 @@ eventHub.addEventListener("allNotesClicked", customEvent => {
 const render = () => {
 
   if (visbility){
-    contentTarget.classList.add("invisble")
+    contentTarget.classList.remove("invisble")
   } else {
-    contentTarget.classList.remove("invisible")
+    contentTarget.classList.add("invisible")
   }
   
   getNotes().then(() => {
@@ -43,5 +47,6 @@ const render = () => {
   })
 }
 
-export const NoteList = () => render()
-
+export const NoteList = () => {
+  render()
+}

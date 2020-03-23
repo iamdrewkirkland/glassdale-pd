@@ -24,8 +24,8 @@ contentTarget.addEventListener("click", clickEvent => {
 
     const newNote = {
       noteText: noteText,
-      cirminal: criminalName,
-      timestamp: noteDate,
+      criminalName: criminalName,
+      noteDate: noteDate,
     };
     saveNote(newNote);
   }

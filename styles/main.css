@@ -28,4 +28,8 @@ h6 {
   text-transform: uppercase;
 }
 
+.listWrapper {
+  display: flex;
+  flex-flow: row nowrap;
+}
 
