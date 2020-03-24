@@ -4,12 +4,25 @@ import { criminalHtmlRep } from "./Criminal.js";
 const domTarget = document.querySelector(".criminalsContainer");
 const eventHub = document.querySelector(".container");
 
+// Set state variable for criminal list visibility
+let visibility = true
+
 export const criminalList = () => {
   const criminals = useCriminals();
 
+  eventHub.addEventListener("witnessButtonClicked", customEvent => {
+    visibility = !visibility
+
+    visibility
+      ? domTarget.classList.remove("invisible")
+      : domTarget.classList.add("invisible")
+
+  })
+
   // Listen for the custom event you dispatched in ConvictionSelect
+  // Render only criminals that match the selected crime
   eventHub.addEventListener("crimeSelected", event => {
-    // You remembered to add the id of the crime to the event detail, right?
+    
     const crimeId = event.detail.crime;
     const matchingCriminals = criminals.filter(crime => {
       if (crime.conviction === crimeId) {
@@ -20,6 +33,7 @@ export const criminalList = () => {
     render(matchingCriminals);
   });
 
+  // All criminal render function. 
   const render = criminalCollection => {
     domTarget.innerHTML = `${criminalCollection
       .map(criminal => {
@@ -29,6 +43,5 @@ export const criminalList = () => {
   };
 
   // Render ALL criminals initally
-
   render(criminals);
 };
