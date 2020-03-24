@@ -1,28 +1,30 @@
 import { useCriminals } from "./criminalProvier.js";
 import { criminalHtmlRep } from "./Criminal.js";
 
-const domTarget = document.querySelector(".criminalsContainer");
+const contentTarget = document.querySelector(".criminalsContainer");
 const eventHub = document.querySelector(".container");
 
 // Set state variable for criminal list visibility
 let visibility = true
 
+// Toggle criminal list if Witness Statements button clicked
+eventHub.addEventListener("witnessButtonClicked", customEvent => {
+  visibility = !visibility
+
+  visibility
+    ? contentTarget.classList.remove("invisible")
+    : contentTarget.classList.add("invisible")
+
+})
+
+// Function responsible for rendering the criminal list
 export const criminalList = () => {
   const criminals = useCriminals();
 
-  eventHub.addEventListener("witnessButtonClicked", customEvent => {
-    visibility = !visibility
-
-    visibility
-      ? domTarget.classList.remove("invisible")
-      : domTarget.classList.add("invisible")
-
-  })
-
-  // Listen for the custom event you dispatched in ConvictionSelect
   // Render only criminals that match the selected crime
   eventHub.addEventListener("crimeSelected", event => {
     
+    // Get the ID of the crime selected from drop down and render matching criminals
     const crimeId = event.detail.crime;
     const matchingCriminals = criminals.filter(crime => {
       if (crime.conviction === crimeId) {
@@ -33,9 +35,9 @@ export const criminalList = () => {
     render(matchingCriminals);
   });
 
-  // All criminal render function. 
+  // Render each object of the collection as HTML
   const render = criminalCollection => {
-    domTarget.innerHTML = `${criminalCollection
+    contentTarget.innerHTML = `${criminalCollection
       .map(criminal => {
         return criminalHtmlRep(criminal);
       })

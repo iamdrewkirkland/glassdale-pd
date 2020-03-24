@@ -2,7 +2,7 @@
 
 export const Witness = witness => {
     return `
-        <section class="statement">
+        <section class="witness">
             <header>
                 <h3>${witness.name}</h3>
             </header>
