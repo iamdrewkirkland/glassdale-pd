@@ -1,5 +1,5 @@
 import { Note } from "./Note.js";
-import { useNotes, getNotes } from "./noteDataProvider.js";
+import { useNotes, getNotes, deleteNote } from "./noteDataProvider.js";
 
 
 // DOM Element Selectors
@@ -8,6 +8,14 @@ const eventHub = document.querySelector(".container")
 
 // State variables
 let visbility = false
+
+// Event handler for delete note
+contentTarget.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("deleteNote--")) {
+      const [prefix, noteId] = clickEvent.target.id.split("--")
+      deleteNote(noteId)
+    }
+})
 
 // Event handler for note state
 eventHub.addEventListener("noteStateChanged", customEvent => {
